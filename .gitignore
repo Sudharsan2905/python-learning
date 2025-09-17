@@ -1,0 +1,2 @@
+# Custom: Recursively ignore all __pycache__ directories from root
+**/__pycache__/
