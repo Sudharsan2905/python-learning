@@ -11,10 +11,14 @@ class MongoDB:
 
     @classmethod
     def get_database(cls):
-        if cls.client is None:
-            uri = os.getenv("MONGODB_URI")
-            cls.client = MongoClient(uri, server_api=ServerApi('1'))
-        return cls.client[os.getenv("DATABASE_NAME")]
+        try:
+            if cls.client is None:
+                uri = os.getenv("MONGODB_URI")
+                cls.client = MongoClient(uri, server_api=ServerApi('1'))
+                print("Database Connection successfully")
+            return cls.client[os.getenv("DATABASE_NAME")]
+        except Exception as e:
+            print("Database Connection Failed", e)
 
 # Global database instance
 def get_db():

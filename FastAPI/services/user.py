@@ -52,7 +52,7 @@ class UserCRUD:
         """Convert MongoDB document to User model"""
         return User(
             id=str(user_doc["_id"]),
-            username=user_doc["username"],
+            username = user_doc.get("username") or user_doc.get("fullName"),
             email=user_doc["email"],
             created_at=user_doc.get("createdAt"),
             is_active=user_doc.get("is_active", True)
