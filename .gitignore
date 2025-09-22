@@ -1,3 +1,5 @@
 # Custom: Recursively ignore all __pycache__ directories from root
 **/__pycache__/
 .pyenv/
+
+.env
